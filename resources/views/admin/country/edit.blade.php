@@ -8,7 +8,9 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h4 class="">Edit Country</h4>
+            <h4 class="">Edit Country
+                <a href="{{ url('admin/country')}}" class="btn btn-danger float-end">BACK</a>
+            </h4>
         </div>
         <div class="card-body">
 
@@ -34,7 +36,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Description</label>
-                    <textarea  name="description" rows="5"  class="form-control">{{ $country->description }}</textarea>
+                    <textarea  name="description" rows="5" id="mySummernote"  class="form-control">{{ $country->description }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="">Image</label>
