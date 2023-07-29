@@ -32,6 +32,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-jobs/{job_id}', [App\Http\Controllers\Admin\JobController::class, 'update']);
     Route::get('delete-jobs/{job_id}', [App\Http\Controllers\Admin\JobController::class, 'destroy']);
 
+
+    Route::get('news', [App\Http\Controllers\Admin\NewsController::class, 'index']);
+    Route::get('add-news', [App\Http\Controllers\Admin\NewsController::class, 'create']);
+    Route::post('add-news', [App\Http\Controllers\Admin\NewsController::class, 'store']);
+    Route::get('edit-news/{news_id}', [App\Http\Controllers\Admin\NewsController::class, 'edit']);
+    Route::put('update-news/{news_id}', [App\Http\Controllers\Admin\NewsController::class, 'update']);
+    Route::get('delete-news/{news_id}', [App\Http\Controllers\Admin\NewsController::class, 'destroy']);
+
     Route::get('users', [App\Http\Controllers\Admin\UserController::class, 'index']);
     Route::get('user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'edit']);
     Route::put('update-user/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'update']);
