@@ -1,0 +1,43 @@
+.navbar {
+    padding: 0px 0px !important;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    border-right: 1px solid;
+    padding: 8px 18px !important;
+}
+
+.card-shadow {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+    border-radius: 0;
+}
+
+.country-image-style {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.country-image-style img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.country-heading {
+    color: #fff;
+    padding: 10px 12px;
+    border-left: 6px solid #000;
+    background-color: #0d6efd;
+}
+
+.job-heading {
+    font-size: 20px;
+    color: #000;
+}
+.span-text {
+    font-size: 12px;
+}
