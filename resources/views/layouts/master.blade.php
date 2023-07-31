@@ -16,7 +16,10 @@
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css')}}">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css')}}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/css/admin-styles.css')}}">
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 

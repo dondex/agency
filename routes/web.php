@@ -15,6 +15,14 @@ Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index
 Route::get('jobs/{country_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewCountryJob']);
 Route::get('jobs/{country_slug}/{job_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewJob']);
 
+Route::get('/about', function () {
+    return view('frontend.about');
+});
+
+Route::get('/services', function () {
+    return view('frontend.services');
+});
+
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
