@@ -9,6 +9,26 @@
     padding: 8px 18px !important;
 } */
 
+.small-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+}
+
+.small-checkbox:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.small-checkbox:hover {
+    border-color: #999;
+}
+
 .card-shadow {
     box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
     border-radius: 0;

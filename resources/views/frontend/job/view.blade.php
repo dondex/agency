@@ -20,8 +20,14 @@
                     <div class="card card-shadow mt-4">
                         <div class="card-body job-desc">
                             {!! $job->description !!}
+
+                            <div class="py-3">
+                                <a href="{{ url('applicant/apply-job/'.$job->id)}}"><button class="btn btn-primary">Apply Now</button></a>
+                            </div>
                         </div>
                     </div>
+
+
 
                 </div>
                 <div class="col-md-4">

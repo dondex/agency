@@ -23,9 +23,19 @@ Route::get('/services', function () {
     return view('frontend.services');
 });
 
+Route::prefix('applicant')->middleware(['auth'])->group(function () {
+    Route::get('apply-job', [App\Http\Controllers\ApplicantController::class, 'create']);
+    Route::post('apply-job', [App\Http\Controllers\ApplicantController::class, 'store']);
+
+    Route::get('apply-job/{job_id}', [App\Http\Controllers\ApplicantController::class, 'applyJob']);
+});
+
+
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
+    Route::get('applicants', [App\Http\Controllers\ApplicantController::class, 'index']);
 
     Route::get('country', [App\Http\Controllers\Admin\CountryController::class, 'index']);
     Route::get('add-country', [App\Http\Controllers\Admin\CountryController::class, 'create']);

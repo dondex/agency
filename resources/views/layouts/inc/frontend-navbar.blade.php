@@ -125,7 +125,7 @@
 
                 <div class="my-2 my-md-0 ml-lg-4 text-center">
                   <a
-                    href="contact.html"
+                    href="{{ url('applicant/apply-job')}}"
                     class="btn btn-solid-border btn-round-full"
                     >Apply Now</a
                   >
