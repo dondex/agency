@@ -14,7 +14,7 @@
                 <div class="col-md-8">
 
                     <div class="country-heading">
-                        <h4 class="mb-0">{{ $job->country->name}} / {!! $job->name !!}</h4>
+                        <h4 class="mb-0 text-white">{{ $job->country->name}} / {!! $job->name !!}</h4>
                     </div>
 
                     <div class="card card-shadow mt-4">
@@ -22,7 +22,7 @@
                             {!! $job->description !!}
 
                             <div class="py-3">
-                                <a href="{{ url('applicant/apply-job/'.$job->id)}}"><button class="btn btn-primary">Apply Now</button></a>
+                                <a href="{{ url('applicant/apply-job/'.$job->name)}}"><button class="btn btn-primary">Apply Now</button></a>
                             </div>
                         </div>
                     </div>

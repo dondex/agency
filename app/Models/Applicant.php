@@ -12,7 +12,7 @@ class Applicant extends Model
     protected $table = 'applicants';
 
     protected $fillable = [
-        'job_id',
+        'job_name',
         'name',
         'email',
         'number',

@@ -13,15 +13,28 @@
                     <h4 class="mb-0 text-white">Application Form with Specific Job Position</h4>
                 </div>
 
+                @if (session('message'))
+                    <div class="alert alert-success my-3">{{ session('message')}}</div>
+                @endif
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <div>{{$error}}</div>
+                        @endforeach
+                    </div>
+                @endif
+
                 <div class="card card-shadow mt-4">
                     <div class="card-body job-desc">
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                             <div class="mb-3">
                                 <label for="">Job Position</label>
-                                <select name="job_id" class="form-control">
+                                <select name="job_name" class="form-control">
                                     @foreach ($job as $jobitem)
-                                        <option value="{{ $jobitem->id }}">{{ $jobitem->name }}</option>
+                                        <option value="{{ $jobitem->name }}">{{ $jobitem->name }}</option>
                                     @endforeach
 
                                 </select>

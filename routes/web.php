@@ -27,7 +27,8 @@ Route::prefix('applicant')->middleware(['auth'])->group(function () {
     Route::get('apply-job', [App\Http\Controllers\ApplicantController::class, 'create']);
     Route::post('apply-job', [App\Http\Controllers\ApplicantController::class, 'store']);
 
-    Route::get('apply-job/{job_id}', [App\Http\Controllers\ApplicantController::class, 'applyJob']);
+    Route::get('apply-job/{job_name}', [App\Http\Controllers\ApplicantController::class, 'applyJob']);
+    Route::post('apply-job/{job_name}', [App\Http\Controllers\ApplicantController::class, 'applyJobStore']);
 });
 
 

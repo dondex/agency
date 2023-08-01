@@ -33,10 +33,10 @@
 
                             <div class="mb-3">
                                 <label for="">Job Position</label>
-                                <select name="job_id" class="form-control">
+                                <select name="job_name" class="form-control">
 
                                     @foreach ($job as $jobitem)
-                                        <option value="{{$jobitem->id}}">{{$jobitem->name}}</option>
+                                        <option value="{{$jobitem->name}}">{{$jobitem->name}}</option>
                                     @endforeach
 
                                 </select>
