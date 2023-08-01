@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +30,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function authenticated()
+    {
+        if (Auth::user()->role_as == '1') {
+            return redirect('admin/dashboard')->with('status', 'Welcome to Admin Dashboard');
+        } else if (Auth::user()->role_as == '0') {
+            return redirect('applicant/apply-job')->with('status', 'Logged In Successful');
+        } else {
+            return redirect('/');
+        }
+    }
 
     /**
      * Create a new controller instance.

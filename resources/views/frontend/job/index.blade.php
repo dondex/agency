@@ -32,7 +32,7 @@
                 <div class="col-md-9">
 
                     <div class="country-heading">
-                        <h4 class="mb-0">{{ $country->name}}</h4>
+                        <h4 class="mb-0 text-white">{{ $country->name}}</h4>
                     </div>
 
                     @forelse ($job as $jobitem)

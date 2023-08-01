@@ -121,6 +121,25 @@
                   <li class="nav-item @@contact">
                     <a class="nav-link" href="contact.html">Contact</a>
                   </li>
+
+                    <li class="nav-item @@contact">
+                    @guest
+                        <a class="nav-link" href="{{ route('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item @@contact">
+                        <a class="nav-link" href="{{ route('register')}}">Register</a>
+                    </li>
+                    @else
+                        <a class="nav-link" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                    @endguest
+
+
                 </ul>
 
                 <div class="my-2 my-md-0 ml-lg-4 text-center">
