@@ -138,15 +138,13 @@
                         </form>
                     </li>
                     @endguest
-
-
                 </ul>
 
                 <div class="my-2 my-md-0 ml-lg-4 text-center">
                   <a
                     href="{{ url('applicant/apply-job')}}"
                     class="btn btn-solid-border btn-round-full"
-                    >Apply Now</a
+                    >Apply</a
                   >
                 </div>
               </div>

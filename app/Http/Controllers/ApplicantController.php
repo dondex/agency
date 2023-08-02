@@ -8,6 +8,8 @@ use App\Models\Applicant;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicantController extends Controller
 {
@@ -15,6 +17,29 @@ class ApplicantController extends Controller
     {
         $applicant = Applicant::all();
         return view('admin.applicant.index', compact('applicant'));
+    }
+
+    public function show($applicant_id)
+    {
+        $applicant = Applicant::find($applicant_id);
+        return view('admin.applicant.show', compact('applicant'));
+    }
+
+    public function edit($applicant_id)
+    {
+        $applicant = Applicant::find($applicant_id);
+        return view('admin.applicant.edit', compact('applicant'));
+    }
+
+    public function update(Request $request, $applicant_id)
+    {
+        $applicant = Applicant::find($applicant_id);
+        if ($applicant) {
+            $applicant->apply_status = $request->apply_status;
+            $applicant->update();
+            return redirect('admin/applicants')->with('message', 'Status Updated Successfully');
+        }
+        return redirect('admin/applicants')->with('message', 'Applicant Status Not Found');
     }
 
     public function create()

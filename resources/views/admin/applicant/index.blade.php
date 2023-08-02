@@ -10,6 +10,10 @@
                 <h4>View Applicants</h4>
             </div>
             <div class="card-body">
+                @if (session('message'))
+                    <div class="alert alert-success">{{ session('message')}}</div>
+                @endif
+
                 <table id="myDataTable" class="table table-bordered">
                     <thead>
                         <tr>
@@ -30,9 +34,22 @@
                                 <td>{{ $applicantitem->name}}</td>
                                 <td>{{ $applicantitem->email}}</td>
                                 <td>{{ $applicantitem->number}}</td>
-                                <td>{{ $applicantitem->apply_status == '0' ? 'Pending': 'Ongoing'}}</td>
                                 <td>
-                                    <a href="" class="btn btn-success">Edit</a>
+                                    @if ($applicantitem->apply_status == '0')
+                                        <span class="btn btn-warning btn-sm">Pending</span>
+                                    @elseif ($applicantitem->apply_status == '1')
+                                        <span class="btn btn-success btn-sm">Ongoing</span>
+                                    @elseif ($applicantitem->apply_status == '2')
+                                        <span class="btn btn-danger btn-sm">Denied</span>
+                                    @elseif ($applicantitem->apply_status == '3')
+                                        <span class="btn btn-primary btn-sm">Approved</span>
+                                    @else
+                                        <span class="btn btn-dark">Unknown</span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    <a href="{{ url('admin/show-applicant/'.$applicantitem->id)}}" type="button" class="btn btn-success">View</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -41,5 +58,8 @@
             </div>
         </div>
     </div>
+
+
+
 
 @endsection

@@ -1344,7 +1344,8 @@ h3.quote::before {
     z-index: 999;
     height: 40px;
     width: 40px;
-    background: rgb(247, 87, 87);
+    /* background: rgb(247, 87, 87); */
+    background: #036894 !important;
     border-radius: 50%;
     text-align: center;
     line-height: 43px;
