@@ -100,8 +100,10 @@ class CountryController extends Controller
                 File::delete($destination);
             }
 
+            $country->jobs()->delete();
             $country->delete();
-            return redirect('admin/country')->with('message', 'Country Deleted Successfully');
+
+            return redirect('admin/country')->with('message', 'Country Deleted with its Jobs Successfully');
         } else {
             return redirect('admin/country')->with('message', 'No Country Id Found');
         }

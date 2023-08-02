@@ -40,6 +40,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('show-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'show']);
     Route::get('edit-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'edit']);
     Route::put('update-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'update']);
+    Route::get('delete-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'destroy']);
 
     Route::get('country', [App\Http\Controllers\Admin\CountryController::class, 'index']);
     Route::get('add-country', [App\Http\Controllers\Admin\CountryController::class, 'create']);

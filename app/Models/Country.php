@@ -23,4 +23,9 @@ class Country extends Model
         'status',
         'created_by'
     ];
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'country_id', 'id');
+    }
 }

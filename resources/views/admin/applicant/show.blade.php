@@ -32,20 +32,35 @@
                         </div>
                         <div class="d-flex align-items-center my-4">
                             <h6 class="text-success">Apply Status:
-                                <span class="fst-normal text-dark">{{ $applicant->apply_status == '0' ? 'Pending': 'Ongoing'}}</span>
+                                @if ($applicant->apply_status == '0')
+                                        <span class="btn btn-warning btn-sm">Pending</span>
+                                    @elseif ($applicant->apply_status == '1')
+                                        <span class="btn btn-success btn-sm">Ongoing</span>
+                                    @elseif ($applicant->apply_status == '2')
+                                        <span class="btn btn-danger btn-sm">Denied</span>
+                                    @elseif ($applicant->apply_status == '3')
+                                        <span class="btn btn-primary btn-sm">Approved</span>
+                                    @else
+                                        <span class="btn btn-dark">Unknown</span>
+                                @endif
                             </h6>
                         </div>
 
                         <div class="d-flex align-items-center my-4">
                             <h6 class="text-success">Resume:
-                                <a href="" target="_blank" class="btn btn-primary">Click to view Resume</a>
+                                <img src="{{ asset('uploads/applicant/'.$applicant->image)}}" width="450px" height="auto" alt="img">
                             </h6>
                         </div>
+                        <div class="action-button d-flex">
+                            <div class="my-4 px-3">
+                                <a href="{{ url('admin/edit-applicant/'.$applicant->id) }}" class="btn btn-success">Edit</a>
+                            </div>
 
-                        <div class="d-flex align-items-center my-4">
-                            <a href="{{ url('admin/edit-applicant/'.$applicant->id) }}" class="btn btn-success">Edit</a>
+                            <div class="my-4 px-3">
+                                <a href="{{ url('admin/delete-applicant/'.$applicant->id) }}" class="btn btn-danger">Delete</a>
+
+                            </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -55,6 +70,7 @@
 
 
 @endsection
+
 
 
 

@@ -107,4 +107,15 @@ class ApplicantController extends Controller
 
         return redirect('applicant/apply-job')->with('message', 'Application Submit Successfully');
     }
+
+    public function destroy($applicant_id)
+    {
+        $applicant = Applicant::find($applicant_id);
+        if ($applicant) {
+            $applicant->delete();
+            return redirect('admin/applicants')->with('message', 'Application Deleted Successfully');
+        } else {
+            return redirect('admin/applicants')->with('message', 'No Application Id Found');
+        }
+    }
 }
