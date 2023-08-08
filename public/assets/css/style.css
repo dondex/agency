@@ -289,6 +289,10 @@ input[type="tel"]:focus {
     width: auto !important;
     height: 300px !important;
 }
+.img-fluid-news-main {
+    width: 100% !important;
+    height: 300px !important;
+}
 
 .text-color {
     /* color: rgb(247, 87, 87); */
@@ -680,7 +684,7 @@ ul.dropdown-menu li {
     top: 0px;
     width: 45%;
     min-height: 650px;
-    background: url("../images/about/home-8.jpg") no-repeat;
+    background: url("../images/philworld-about.jpg") no-repeat !important;
     background-size: cover;
 }
 

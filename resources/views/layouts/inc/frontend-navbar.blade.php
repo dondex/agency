@@ -107,19 +107,16 @@
                         </ul>
                     </li>
 
-                  <li class="nav-item dropdown @@blog">
+                  <li class="nav-item @@blog">
                     <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      id="dropdown05"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
+                      class="nav-link"
+                      href="{{ url('news')}}"
+
                       >News & Events <i class="fas fa-chevron-down small"></i
                     ></a>
                   </li>
                   <li class="nav-item @@contact">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="{{ url('contact')}}">Contact</a>
                   </li>
 
                     <li class="nav-item @@contact">

@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
 
+    <!--Favicon-->
+    <link rel="icon" href="{{ asset('assets/images/phil-logo.png')}}" type="image/x-icon">
+
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button {
             padding: 0px !important;

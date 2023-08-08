@@ -39,15 +39,30 @@
 
 </head>
 <body>
-    <div id="app">
+    <div >
 
-        @include('layouts.inc.frontend-navbar')
+
 
         <main class="">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Name: {{ $fromName }}</h3>
+                                <h3>Contact Number: {{ $fromNumber }}</h3>
+                                <h3>Subject: {{ $subject }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <h6>Message: {{$body}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        @include('layouts.inc.frontend-footer')
+
     </div>
 
     {{-- <script src="{{ asset('assets/js/jquery-3.6.0.min.js')}}"></script> --}}

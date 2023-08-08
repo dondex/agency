@@ -399,9 +399,9 @@
                     </div>
                 @endforeach
 
-                <div class="your-paginate my-3">
+                {{-- <div class="your-paginate my-3">
                     {{ $all_news->links() }}
-                </div>
+                </div> --}}
 
 
             {{-- <div class="col-lg-4 col-md-6 mb-5">
@@ -477,6 +477,10 @@
                 </div>
               </div>
             </div> --}}
+          </div>
+
+          <div class="col-md-12 text-center my-3">
+            <a href="{{ url('news')}}"><button class="btn btn-primary">View More</button></a>
           </div>
         </div>
       </section>

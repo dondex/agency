@@ -16,12 +16,19 @@ Route::get('jobs/{country_slug}', [App\Http\Controllers\Frontend\FrontendControl
 Route::get('jobs/{country_slug}/{job_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewJob']);
 
 Route::get('/about', function () {
-    return view('frontend.about');
+    return view('frontend.page.about');
 });
 
 Route::get('/services', function () {
-    return view('frontend.services');
+    return view('frontend.page.services');
 });
+
+
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
+Route::post('/send', [App\Http\Controllers\ContactController::class, 'send'])->name('send');
+
+Route::get('/news', [App\Http\Controllers\Frontend\FrontendController::class, 'viewNews']);
+Route::get('/news/{news_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewSingleNews']);
 
 Route::prefix('applicant')->middleware(['auth'])->group(function () {
     Route::get('apply-job', [App\Http\Controllers\ApplicantController::class, 'create']);
