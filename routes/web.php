@@ -44,6 +44,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
 
     Route::get('applicants', [App\Http\Controllers\ApplicantController::class, 'index']);
+    Route::get('add-applicant', [App\Http\Controllers\ApplicantController::class, 'createApplicant']);
+    Route::post('add-applicant', [App\Http\Controllers\ApplicantController::class, 'storeApplicant']);
     Route::get('show-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'show']);
     Route::get('edit-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'edit']);
     Route::put('update-applicant/{applicant_id}', [App\Http\Controllers\ApplicantController::class, 'update']);

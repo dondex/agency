@@ -18,6 +18,9 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ url('admin/applicants')}}">View Applicants</a>
                     </nav>
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ url('admin/add-applicant')}}">Add Applicants</a>
+                    </nav>
                 </div>
 
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

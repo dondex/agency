@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Admin\StoreApplicantFormRequest;
 use App\Http\Requests\Frontend\ApplicantFormRequest;
 use App\Http\Requests\Frontend\ApplicantJobFormRequest;
 use App\Models\Applicant;
@@ -117,5 +118,37 @@ class ApplicantController extends Controller
         } else {
             return redirect('admin/applicants')->with('message', 'No Application Id Found');
         }
+    }
+
+    public function createApplicant()
+    {
+        $job = Job::where('status', '0')->get();
+        return view('admin.applicant.create', compact('job'));
+    }
+
+    public function storeApplicant(StoreApplicantFormRequest $request)
+    {
+        $data = $request->validated();
+
+        $applicant = new Applicant;
+        $applicant->job_name = $data['job_name'];
+        $applicant->name = $data['name'];
+        $applicant->email = $data['email'];
+        $applicant->number = $data['number'];
+        $applicant->letter = $data['letter'];
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/applicant/', $filename);
+            $applicant->image = $filename;
+        }
+
+        $applicant->apply_status = $request->apply_status == true ? '0' : '1';
+        $applicant->apply_by = Auth::user()->id;
+
+        $applicant->save();
+
+        return redirect('admin/applicants')->with('message', 'Application Submit Successfully');
     }
 }
